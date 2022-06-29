@@ -14,6 +14,8 @@
     "nuxt": "3.0.0-rc.4"
   },
   "dependencies": {
-    "@fawmi/vue-google-maps": "^0.9.72"
+    "@fawmi/vue-google-maps": "^0.9.72",
+    "three": "^0.142.0",
+    "three-globe": "^2.24.5"
   }
 }
