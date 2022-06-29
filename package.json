@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "miniflare": "sh scripts/miniflare.sh",
+    "publish": "sh scripts/publish.sh",
+    "test:rome": "npx playwright open --timezone='Europe/Rome' --geolocation='41.890221,12.492348' --lang='it-IT' http://localhost:3000",
+    "test:berlin": "npx playwright open --timezone='Europe/Berlin' --geolocation='52.5069704,13.2846504' --lang='de-GE' http://localhost:3000"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.4"
+  },
+  "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.72"
+  }
+}
