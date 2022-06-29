@@ -16,3 +16,6 @@ command = ""
 [build.upload]
 format = "service-worker"
 
+
+[vars]
+API_TOKEN = "AmUN9xAaQALVYu6"
