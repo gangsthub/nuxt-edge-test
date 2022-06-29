@@ -1,26 +1,3 @@
-<template>
-  <div class="info">
-    <h1>
-      Hello<span v-if="location">, {{ location.city }}</span
-      >!
-    </h1>
-    <pre v-if="location"><code>
-      {
-        latitude: {{location.lat}},
-        longitude: {{location.lon}},
-      }
-    </code></pre>
-    <ClientOnly>
-      <h2>
-        Language: <output>{{ lang }}</output>
-      </h2>
-    </ClientOnly>
-  </div>
-  <ClientOnly>
-    <Globe v-if="location" :lat="location.lat" :lon="location.lon" />
-  </ClientOnly>
-</template>
-
 <script setup lang="ts">
 // Location
 const location = useLocation();
@@ -29,10 +6,72 @@ const location = useLocation();
 const lang = useLang();
 </script>
 
-<style>
-.info {
+<template>
+  <article>
+    <header v-if="location">
+      <h1>{{ location.city }}</h1>
+      <div class="info">
+        <span>🌎</span>
+        <span
+          >Lat: <code>{{ location.lat }}</code></span
+        >
+        <span
+          >Long: <code>{{ location.lon }}</code></span
+        >
+      </div>
+    </header>
+
+    <ClientOnly>
+      <h2>
+        Language: <output>{{ lang }}</output>
+      </h2>
+    </ClientOnly>
+  </article>
+  <ClientOnly>
+    <Globe v-if="location" :lat="location.lat" :lon="location.lon" />
+  </ClientOnly>
+</template>
+
+<style scoped>
+article,
+h1,
+h2 {
   position: absolute;
-  color: white;
+}
+article {
+  mix-blend-mode: plus-lighter;
+  color: rgba(255 255 255 / 0.8);
   padding: 1em;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+header {
+  text-align: right;
+}
+
+h1,
+h2 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h1,
+output {
+  color: goldenrod;
+}
+
+h1 {
+  top: 10vh;
+  font-size: 5vh;
+}
+.info {
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+}
+h2 {
+  bottom: 2em;
 }
 </style>

@@ -11,10 +11,9 @@
     "test:berlin": "npx playwright open --timezone='Europe/Berlin' --geolocation='52.5069704,13.2846504' --lang='de-GE' http://localhost:3000"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.4"
+    "nuxt": "^3.0.0-rc.4"
   },
   "dependencies": {
-    "@fawmi/vue-google-maps": "^0.9.72",
     "three": "^0.142.0",
     "three-globe": "^2.24.5"
   }
