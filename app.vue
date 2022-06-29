@@ -21,11 +21,9 @@ const lang = useLang();
       </div>
     </header>
 
-    <ClientOnly>
-      <h2>
-        Browser language: <output>{{ lang }}</output>
-      </h2>
-    </ClientOnly>
+    <h2>
+      Browser language: <output>{{ lang }}</output>
+    </h2>
   </article>
   <ClientOnly>
     <Globe v-if="location" :lat="location.lat" :lon="location.lon" />
