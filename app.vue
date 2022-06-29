@@ -23,7 +23,7 @@ const lang = useLang();
 
     <ClientOnly>
       <h2>
-        Language: <output>{{ lang }}</output>
+        Browser language: <output>{{ lang }}</output>
       </h2>
     </ClientOnly>
   </article>
@@ -43,7 +43,7 @@ article {
   color: rgba(255 255 255 / 0.8);
   padding: 1em;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   pointer-events: none;
 }
 
@@ -63,7 +63,7 @@ output {
 }
 
 h1 {
-  top: 10vh;
+  top: 7vh;
   font-size: 5vh;
 }
 .info {
@@ -72,6 +72,8 @@ h1 {
   gap: 1em;
 }
 h2 {
-  bottom: 2em;
+  bottom: 2.5em;
+  font-size: 2vh;
+  font-weight: normal;
 }
 </style>

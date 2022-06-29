@@ -1,6 +1,4 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+# Nuxt 3 Deployed to Cloudflare Workers
 
 ## Setup
 
@@ -36,7 +34,13 @@ npm run build
 Locally preview production build:
 
 ```bash
-npm run preview
+npm run miniflare
+```
+
+Deploy to Clouflare Workers
+
+```bash
+npm run build && npm run publish
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.

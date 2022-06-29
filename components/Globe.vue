@@ -7,9 +7,19 @@ const props = defineProps({
 const marker = {
   lat: props.lat,
   lng: props.lon,
+};
+
+const ring = {
+  ...marker,
   maxR: 4,
   propagationSpeed: 5,
   repeatPeriod: 1500,
+};
+
+const pike = {
+  ...marker,
+  size: 0.3,
+  color: 'rgb(218, 165, 32)',
 };
 
 process.client &&
@@ -22,8 +32,8 @@ process.client &&
       PerspectiveCamera,
       Group,
     } = await import('three');
-    const { TrackballControls } = await import(
-      'three/examples/jsm/controls/TrackballControls.js'
+    const { OrbitControls } = await import(
+      'three/examples/jsm/controls/OrbitControls.js'
     );
     const ThreeGlobe = await import('three-globe').then((m) => m.default);
 
@@ -33,11 +43,14 @@ process.client &&
     })
       .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
       .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-      .ringsData([marker])
-      .ringColor(() => (t) => `rgba(218,165,32,${1 - t})`)
+      .ringsData([ring])
+      .ringColor(() => (t) => `rgba(218, 165, 32, ${1 - t})`)
       .ringMaxRadius('maxR')
       .ringPropagationSpeed('propagationSpeed')
-      .ringRepeatPeriod('repeatPeriod');
+      .ringRepeatPeriod('repeatPeriod')
+      .pointsData([pike])
+      .pointAltitude('size')
+      .pointColor('color');
 
     const enclosingGroup = new Group();
     enclosingGroup.add(Globe);
@@ -60,6 +73,14 @@ process.client &&
     camera.position.z = 400;
     camera.position.y = 100;
 
+    // Add camera controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+
+    controls.autoRotate = true;
+    controls.enablePan = false;
+    controls.minPolarAngle = Math.PI / 2;
+    controls.maxPolarAngle = Math.PI / 2;
+
     // handle resize
     window.addEventListener('resize', onWindowResize, false);
     function onWindowResize() {
@@ -69,18 +90,11 @@ process.client &&
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    // Add camera controls
-    const tbControls = new TrackballControls(camera, renderer.domElement);
-    tbControls.minDistance = 101;
-    tbControls.rotateSpeed = 5;
-    tbControls.zoomSpeed = 0.8;
-
     // Kick-off renderer
     (function animate() {
       // IIFE
       // Frame cycle
-      tbControls.update();
-      enclosingGroup.rotation.y -= 0.002;
+      controls.update();
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     })();
