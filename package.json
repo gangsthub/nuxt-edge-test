@@ -11,6 +11,7 @@
     "test:berlin": "npx playwright open --timezone='Europe/Berlin' --geolocation='52.5069704,13.2846504' --lang='de-GE' http://localhost:3000"
   },
   "devDependencies": {
+    "@types/three": "^0.141.0",
     "nuxt": "^3.0.0-rc.4"
   },
   "dependencies": {

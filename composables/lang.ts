@@ -1,13 +1,15 @@
-export const useLang = () => {
+import type { Ref } from 'vue';
+
+export const useLang: () => Ref<string> = () => {
   if (process.client) {
     return ref(navigator.language);
   }
 
-  function parseLangString(languages) {
+  const parseLangString: (languages: string) => string = (languages) => {
     return languages.split(',')[0];
-  }
+  };
   const nuxt = useNuxtApp();
-  const lang = parseLangString(
+  const lang: string = parseLangString(
     nuxt.ssrContext.event.req.headers['accept-language']
   );
   return ref(lang);
