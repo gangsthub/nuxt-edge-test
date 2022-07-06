@@ -1,18 +1,18 @@
-# Nuxt 3 Deployed to Cloudflare Workers
+# Nuxt in the edge
+
+This Nuxt app was used as a demo at the Vue.js Roadtrip Barcelona 2022 conference.
+
+- 🌎 Demo: https://nuxt-edge-test.graficos-net.workers.dev/
+- 📺 Slides: https://slides.com/paul_melero/nuxt-on-the-edge
+- 👀 Recording from Vue.js RoadTrip Barcelona 2022: https://youtu.be/MZbDrmgpqcc?t=19206
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
 # npm
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
 ```
 
 ## Development Server
