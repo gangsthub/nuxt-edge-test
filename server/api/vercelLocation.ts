@@ -9,12 +9,16 @@ export default eventHandler(async (event) => {
   const ipHeader = event.req.headers['x-forwarded-for'] as string;
   const ip = ipHeader ? ipHeader.split(',')[0] : '-';
 
-  const { lat, lon } = await globalThis.$fetch<IpApiResponse>(
-    `https://pro.ip-api.com/json/${ip}?key=${key}&fields=lat,lon`
+  const {
+    lat,
+    lon,
+    city: city2,
+  } = await globalThis.$fetch<IpApiResponse>(
+    `https://pro.ip-api.com/json/${ip}?key=${key}&fields=lat,lon,city`
   );
 
   return {
-    city,
+    city: city === '-' ? city2 : city,
     ip,
     lat,
     lon,

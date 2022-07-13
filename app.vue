@@ -11,7 +11,7 @@ try {
     })
   );
 
-  if (info.value.city === '-') {
+  if (info.value.ip === '-') {
     throw new Error("Can't connect with Vercel Network");
   }
 
