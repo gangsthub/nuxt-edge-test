@@ -14,3 +14,10 @@ export interface IpApiResponse {
   timezone: string;
   zip: string;
 }
+
+export interface VercelApiResponse {
+  ip: string;
+  city: string;
+  lat: number;
+  lon: number;
+}

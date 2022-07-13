@@ -1,6 +1,25 @@
 <script setup lang="ts">
 // Location
-const location = useLocation();
+let location = ref();
+try {
+  const { data: info } = await useAsyncData(() =>
+    globalThis.$fetch('/api/vercelLocation', {
+      headers: useRequestHeaders(['x-forwarded-for', 'x-vercel-ip-city']),
+    })
+  );
+
+  location.value = unref(info);
+
+  if (info.value.city === '-') {
+    throw new Error("Can't connect with Vercel Network");
+  }
+} catch (_e) {
+  try {
+    location = useLocation();
+  } catch (error) {
+    console.log(_e, error);
+  }
+}
 
 // Language
 const lang = useLang();
