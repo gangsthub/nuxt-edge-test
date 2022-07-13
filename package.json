@@ -4,6 +4,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
     "miniflare": "sh scripts/miniflare.sh",
     "publish": "sh scripts/publish.sh",

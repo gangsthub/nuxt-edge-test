@@ -34,10 +34,11 @@ npm run build
 Locally preview production build:
 
 ```bash
+# If you're targeting Cloudflare Workers:
 npm run miniflare
 ```
 
-Deploy to Clouflare Workers
+Deploy to Clouflare Workers:
 
 ```bash
 npm run build && npm run publish
