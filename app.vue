@@ -1,6 +1,27 @@
 <script setup lang="ts">
 // Location
-const location = useLocation();
+let location = ref();
+const message = ref('Application running (server-side) from:');
+try {
+  const { data: info } = await useAsyncData(() =>
+    globalThis.$fetch('/api/vercelLocation', {
+      headers: useRequestHeaders(['x-forwarded-for', 'x-vercel-ip-city']),
+    })
+  );
+
+  if (info.value.city === '-') {
+    throw new Error("Can't connect with Vercel Network");
+  }
+
+  location.value = unref(info);
+  message.value = `Hello from Vercel Edge`;
+} catch (_e) {
+  try {
+    location = useLocation();
+  } catch (error) {
+    console.log(_e, error);
+  }
+}
 
 // Language
 const lang = useLang();
@@ -10,7 +31,7 @@ const lang = useLang();
   <article>
     <header v-if="location">
       <div class="disclaimer">
-        <p>Application running (server-side) from:</p>
+        <p>{{ message }}</p>
         <h1>{{ location.city }}</h1>
       </div>
       <div class="info">

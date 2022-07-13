@@ -29,19 +29,28 @@ Build the application for production:
 
 ```bash
 npm run build
+# until Nuxt+Nitro gets more stable, you might need to set manually NITRO_PRESET to your target preset
 ```
 
 Locally preview production build:
 
 ```bash
 # If you're targeting Cloudflare Workers:
-npm run miniflare
+NITRO_PRESET=cloudflare npm run build && npm run miniflare
+NITRO_PRESET=vercel-edge yarn build && yarn
 ```
 
 Deploy to Clouflare Workers:
 
 ```bash
 npm run build && npm run publish
+```
+
+Deploy to Vercel:
+
+```bash
+npm i -g vercel
+vercel --open
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
