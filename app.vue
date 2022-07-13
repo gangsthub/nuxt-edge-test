@@ -64,10 +64,10 @@ output {
 }
 
 .disclaimer {
+  text-align: center;
   top: 7vh;
 }
 .disclaimer p {
-  text-align: center;
   margin: 0;
 }
 h1 {
