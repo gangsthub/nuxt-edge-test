@@ -39,7 +39,7 @@ Locally preview production build:
 NITRO_PRESET=cloudflare npm run build && npm run miniflare
 # If you're targeting Vercel:
 npm i -g vercel
-NITRO_PRESET=vercel-edge yarn build && vercel dev
+NITRO_PRESET=vercel-edge yarn build && vercel
 ```
 
 Deploy to Clouflare Workers:

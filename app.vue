@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { VercelApiResponse } from './types';
+
 // Location
 let location = ref();
 const message = ref('Application running (server-side) from:');
 try {
   const { data: info } = await useAsyncData(() =>
-    globalThis.$fetch('/api/vercelLocation', {
+    globalThis.$fetch<VercelApiResponse>('/api/vercelLocation', {
       headers: useRequestHeaders(['x-forwarded-for', 'x-vercel-ip-city']),
     })
   );

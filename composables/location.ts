@@ -5,7 +5,7 @@ export const useLocation = () => {
   const location: Ref<IpApiResponse> = ref();
 
   watchEffect(async () => {
-    location.value = await $fetch(`/api/location`);
+    location.value = await globalThis.$fetch(`/api/location`);
   });
 
   return location;
