@@ -80,6 +80,8 @@ process.client &&
     controls.enablePan = false;
     controls.minPolarAngle = Math.PI / 2;
     controls.maxPolarAngle = Math.PI / 2;
+    controls.minDistance = Globe.getGlobeRadius() * 2;
+    controls.maxDistance = Globe.getGlobeRadius() * 6;
 
     // handle resize
     window.addEventListener('resize', onWindowResize, false);
