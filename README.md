@@ -37,20 +37,24 @@ Locally preview production build:
 ```bash
 # If you're targeting Cloudflare Workers:
 NITRO_PRESET=cloudflare npm run build && npm run miniflare
-NITRO_PRESET=vercel-edge yarn build && yarn
+# If you're targeting Vercel:
+npm i -g vercel
+NITRO_PRESET=vercel-edge yarn build && vercel dev
 ```
 
 Deploy to Clouflare Workers:
 
 ```bash
-npm run build && npm run publish
+NITRO_PRESET=cloudflare npm run build && npm run publish
 ```
 
 Deploy to Vercel:
 
 ```bash
+# if you haven't installed vercel CLI yet, do so:
 npm i -g vercel
-vercel --open
+# and then:
+NITRO_PRESET=vercel-edge yarn build && vercel
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
