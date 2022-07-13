@@ -9,7 +9,10 @@ const lang = useLang();
 <template>
   <article>
     <header v-if="location">
-      <h1>{{ location.city }}</h1>
+      <div class="disclaimer">
+        <p>Application running (server-side) from:</p>
+        <h1>{{ location.city }}</h1>
+      </div>
       <div class="info">
         <span>🌎</span>
         <span
@@ -32,7 +35,7 @@ const lang = useLang();
 
 <style scoped>
 article,
-h1,
+.disclaimer,
 h2 {
   position: absolute;
 }
@@ -49,7 +52,7 @@ header {
   text-align: right;
 }
 
-h1,
+.disclaimer,
 h2 {
   left: 50%;
   transform: translateX(-50%);
@@ -60,9 +63,16 @@ output {
   color: goldenrod;
 }
 
-h1 {
+.disclaimer {
   top: 7vh;
+}
+.disclaimer p {
+  text-align: center;
+  margin: 0;
+}
+h1 {
   font-size: 5vh;
+  margin-top: 0;
 }
 .info {
   display: inline-flex;
