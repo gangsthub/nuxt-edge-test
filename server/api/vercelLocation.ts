@@ -9,6 +9,10 @@ export default eventHandler(async (event) => {
   const ipHeader = event.req.headers['x-forwarded-for'] as string;
   const ip = ipHeader ? ipHeader.split(',')[0] : '-';
 
+  if (ip.match(/^127\.0\.0/)) {
+    throw new Error("You're on dev environment, can't get IP");
+  }
+
   const {
     lat,
     lon,
