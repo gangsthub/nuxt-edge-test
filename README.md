@@ -4,7 +4,7 @@ This Nuxt app was used as a demo at the Vue.js Roadtrip Barcelona 2022 conferenc
 
 - 🌎 Demo: https://nuxt-edge-test.graficos-net.workers.dev/
 - 📺 Slides: https://slides.com/paul_melero/nuxt-on-the-edge
-- 👀 Recording from Vue.js RoadTrip Barcelona 2022: https://youtu.be/MZbDrmgpqcc?t=19206
+- 👀 Recording from Vue.js RoadTrip Barcelona 2022: https://youtu.be/MZbDrmgpqcc?t=19267
 
 ## Setup
 
